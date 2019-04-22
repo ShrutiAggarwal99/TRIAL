@@ -280,7 +280,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
     <script>
         // Render the PayPal button into #paypal-button-container
-	 var val = document.querySelector(".amount");
+	 var val = document.getElementsByClassName("amount");
         paypal.Buttons({
             // Set up the transaction
             createOrder: function(data, actions) {
