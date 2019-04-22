@@ -192,7 +192,7 @@
 						<div class="col-lg-4">
 							<div class="donate_box">
 								<div class="form-group">
-									<input class="amount" type="text" placeholder="Others" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Others'" class="form-control">
+									<input id="i1" class="amount" type="text" placeholder="Others" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Others'" class="form-control">
 									<span class="fs-14">USD</span>
 								</div>
 							</div>
@@ -280,14 +280,15 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
     <script>
         // Render the PayPal button into #paypal-button-container
-	 var val = document.getElementsByClassName("amount");
+// 	 var val = document.getElementsById("i1").value;
+	 
         paypal.Buttons({
             // Set up the transaction
             createOrder: function(data, actions) {
                 return actions.order.create({
                     purchase_units: [{
                         amount: {
-                            value: val
+                            value: '0.01'
                         }
                     }]
                 });
