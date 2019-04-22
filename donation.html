@@ -130,7 +130,7 @@
 								<div class="form-check">
 									<input type="radio" class="form-check-input" name="donation" id="ten_doller">
 									<label class="form-check-label d-flex justify-content-between" for="ten_doller">
-										<div class="label_text">
+										<div class="label_text" class="amount">
 											$10.00
 										</div>
 										<div class="label_text">
@@ -146,7 +146,7 @@
 								<div class="form-check">
 									<input type="radio" class="form-check-input" name="donation" id="fifty_doller">
 									<label class="form-check-label d-flex justify-content-between" for="fifty_doller">
-										<div class="label_text">
+										<div class="label_text" class="amount">
 											$50.00
 										</div>
 										<div class="label_text">
@@ -162,7 +162,7 @@
 								<div class="form-check">
 									<input type="radio" class="form-check-input" name="donation" id="hundred_doller">
 									<label class="form-check-label d-flex justify-content-between" for="hundred_doller">
-										<div class="label_text">
+										<div class="label_text" class="amount">
 											$100.00
 										</div>
 										<div class="label_text">
@@ -178,7 +178,7 @@
 								<div class="form-check">
 									<input type="radio" class="form-check-input" name="donation" id="two_fifty__doller">
 									<label class="form-check-label d-flex justify-content-between" for="two_fifty__doller">
-										<div class="label_text">
+										<div class="label_text" class="amount">
 											$250.00
 										</div>
 										<div class="label_text">
@@ -192,7 +192,7 @@
 						<div class="col-lg-4">
 							<div class="donate_box">
 								<div class="form-group">
-									<input type="text" placeholder="Others" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Others'" class="form-control">
+									<input class="amount" type="text" placeholder="Others" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Others'" class="form-control">
 									<span class="fs-14">USD</span>
 								</div>
 							</div>
@@ -280,13 +280,14 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
     <script>
         // Render the PayPal button into #paypal-button-container
+	 var val = document.querySelector(".amount");
         paypal.Buttons({
             // Set up the transaction
             createOrder: function(data, actions) {
                 return actions.order.create({
                     purchase_units: [{
                         amount: {
-                            value: '0.01'
+                            value: val;
                         }
                     }]
                 });
